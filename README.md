@@ -4,7 +4,19 @@ Projeto docker composto por:
   - sonar-delphi-plugin 
   - sonar-scanner
   
-Como rodar seu projeto
+Como baixar a última imagem
+  - docker push armandonetodev/sonarqubedelphi:latest
+  
+Como rodar o projeto pelo docker
+  - docker run -d --name sonarqube -e SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true -p 9000:9000 armandonetodev/sonarqubedelphi:latest
+  - docker run -d --name sonarqube \
+	 -p 9000:9000 \
+     -v sonarqube_data:/opt/sonarqube/data \
+     -v sonarqube_extensions:/opt/sonarqube/extensions \
+     -v sonarqube_logs:/opt/sonarqube/logs \
+     armandonetodev/sonarqubedelphi:latest
+  
+Como rodar o projeto pelo docker-compose
   - docker-compose up
   
 Como realizar o scanner do projeto  
